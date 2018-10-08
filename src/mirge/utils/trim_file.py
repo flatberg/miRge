@@ -51,7 +51,7 @@ class Worker(Process):
 			result_batch = []
 			for read in reads:
 				for modifier in modifiers:
-					read = modifier(read)
+					read = modifier(read, [])
 				if len(read.sequence) >= min_length:
 					try:
 						second_header = read.name2
