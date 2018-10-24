@@ -86,12 +86,7 @@ def main():
 	else:
 		print >> sys.stderr, "The value of parameter '-d' is invalid. Please check it"
 		sys.exit(1)
-	bowtieBinary = args.bowtieBinary
-        if not bowtieBinary:
-              bowtieBinary = os.path.dirname(shutil.which('bowtie'))
-              if bowtieBinary is None:
-                    print >> sys.stderr, "bowtie can't be autodected. Specifiy bowtie binary path argument"
-                    sys.exit(1)
+	bowtieBinary = args.bowtieBinary or ''
 	# Check the binarys directory to make sure it can work
 	executable1 = find_executable(os.path.join(bowtieBinary, 'bowtie'))
 	if not executable1:
